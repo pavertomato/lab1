@@ -2,6 +2,7 @@
 #include <string>
 #include "PolStr.h"
 #include <string.h>
+#include "newton.h"
 using namespace std;
 int main(int argc, char **argv) {
 
@@ -11,13 +12,18 @@ int main(int argc, char **argv) {
     cin >> n;
     getline(cin,spol);
     getline(cin,spol);
-    cin >> a,b;
+    cin >> a >> b;
     cin >> eps;
-    char* t = new char[1000];
+    char* t = new char[1024+1];
     strcpy(t,spol.c_str());
-    t=CreatePolStr(t,0);
-    cout<<t;
-    for(int i=0;i<3;i++)
-        cout<<EvalPolStr(t,i);
+    try {
+        t=CreatePolStr(t,0);
+        cout<<EvalPolStr(t,5)<<endl;
+        if (n==2)
+            cout<<findNewton(t,a,b,eps);
+    }
+    catch (exception e) {
+        cout << e.what() << endl;
+    }
     return 0;
 }
