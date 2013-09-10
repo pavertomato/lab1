@@ -11,15 +11,15 @@ double findDiho(char *t, double a, double b, double eps) {
         do
         {
             c=(a+b)/2;
-            cout<<a<<' '<<b<<'\n';
+            cout<<a<<' '<<b<<' '<<c<<' '<<EvalPolStr(t,c))<<endl;
             if(EvalPolStr(t,a)*EvalPolStr(t,c)<=0)
                 b=c;
             else
                 a=c;
             i--;
         }
-        while(fabs(EvalPolStr(t,c))>eps&&(b-a)/2>eps);
-        cerr << "x : " << c << " -> " << EvalPolStr(t,c) << endl;
+        while(fabs(EvalPolStr(t,c))>eps||(b-a)/2>eps);
+        cout << "x : " << c << " -> " << EvalPolStr(t,c) <<' '<< eps<<endl;
         return c;
 }
 

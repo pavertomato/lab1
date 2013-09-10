@@ -3,6 +3,7 @@
 #include "PolStr.h"
 #include <string.h>
 #include "newton.h"
+#include "diho.h"
 using namespace std;
 int main(int argc, char **argv) {
 
@@ -13,14 +14,17 @@ int main(int argc, char **argv) {
     getline(cin,spol);
     getline(cin,spol);
     cin >> a >> b;
+    cout<<a<<' '<<b;
     cin >> eps;
     char* t = new char[1024+1];
     strcpy(t,spol.c_str());
     try {
         t=CreatePolStr(t,0);
-        cout<<EvalPolStr(t,5)<<endl;
+    cout<<t<<endl;
         if (n==2)
-            cout<<findNewton(t,a,b,eps);
+                findNewton(t,a,b,eps);
+	if (n==1)
+	        findDiho(t,a,b,eps);
     }
     catch (exception e) {
         cout << e.what() << endl;
