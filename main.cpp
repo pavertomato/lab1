@@ -15,6 +15,9 @@ int main(int argc, char **argv) {
     cin >> eps;
     char* t = new char[1000];
     strcpy(t,spol.c_str());
-    cout<<EvalPolStr(t,1);
+    t=CreatePolStr(t,0);
+    cout<<t;
+    for(int i=0;i<3;i++)
+        cout<<EvalPolStr(t,i);
     return 0;
 }
