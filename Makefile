@@ -1,4 +1,5 @@
+SOURCEOBJS = PolStr.o main.cpp newton.cpp diho.cpp combined.cpp
 main :
-	g++ -o lab1 PolStr.o main.cpp newton.cpp
+	g++ -o lab1 $(SOURCEOBJS)
 main-debug :
-	g++ -g -O1 -o lab1 main.cpp newton.cpp PolStr.o
+	g++ -g -O1 -o lab1 $(SOURCEOBJS)
