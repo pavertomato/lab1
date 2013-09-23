@@ -6,6 +6,7 @@
 #include "diho.h"
 #include "combined.h"
 #include "chord.h"
+#include "iteration.h"
 #include "golden.h"
 using namespace std;
 int main(int argc, char **argv) {
@@ -30,6 +31,8 @@ int main(int argc, char **argv) {
             findNewton(t,a,b,eps);
         if (n==4)
             findCombined(t,a,b,eps);
+        if (n==5)
+            findIteration(t,a,b,eps);
         if (n==6)
             findGolden(t,a,b,eps);
     }

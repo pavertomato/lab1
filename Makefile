@@ -1,4 +1,4 @@
-SOURCEOBJS = PolStr.o main.cpp newton.cpp diho.cpp combined.cpp chord.cpp golden.cpp
+SOURCEOBJS = PolStr.o main.cpp newton.cpp diho.cpp combined.cpp chord.cpp golden.cpp iteration.cpp
 main :
 	g++ -o lab1 $(SOURCEOBJS)
 main-debug :
