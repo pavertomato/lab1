@@ -5,6 +5,7 @@
 using namespace std;
 //t -- expression
 double findIteration(char *t, double a, double b, double eps,double& result) {
+    cout << "Iteration method : \n";
     double lam;
     double x;
     if (fabs(EvalPolStr(t,a,1))<1)
