@@ -11,6 +11,8 @@ double findIteration(char *t, double a, double b, double eps,double& result) {
         x=a;
     else if (fabs(EvalPolStr(t,b,1))<1)
         x=b;
+    else
+        x = (a+b)/2;
     lam = EvalPolStr(t,x,0);
     while (1) {
         result = EvalPolStr(t,x,0);
