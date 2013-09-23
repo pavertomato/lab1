@@ -7,6 +7,7 @@
 #include "combined.h"
 #include "chord.h"
 #include "golden.h"
+#include <cmath>
 using namespace std;
 int main(int argc, char **argv) {
     int n;
@@ -19,22 +20,24 @@ int main(int argc, char **argv) {
     cin >> eps;
     char* t = new char[1024+1];
     strcpy(t,spol.c_str());
+    double x,y;
     try {
         t=CreatePolStr(t,0);
-        //cout<<t<<endl;
         if (n==1)
-            findDiho(t,a,b,eps);
+            x = findDiho(t,a,b,eps,y);
         if (n==2)
-            findChord(t,a,b,eps);
+            x = findChord(t,a,b,eps,y);
         if (n==3)
-            findNewton(t,a,b,eps);
+            x = findNewton(t,a,b,eps,y);
         if (n==4)
-            findCombined(t,a,b,eps);
+            x = findCombined(t,a,b,eps,y);
         if (n==6)
-            findGolden(t,a,b,eps);
+            x = findGolden(t,a,b,eps,y);
     }
     catch (exception e) {
         cout << e.what() << endl;
     }
+    cout.precision(-log10(eps));
+    cout << "x : " << x << "; f(x) : " << y << "; eps: " << eps << endl;
     return 0;
 }
