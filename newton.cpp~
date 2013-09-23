@@ -4,7 +4,8 @@
 #include <stdexcept>
 using namespace std;
 //t -- expression
-double findNewton(char *t, double a, double b, double eps) {
+double findNewton(char *t, double a, double b, double eps, double& result) {
+    cout << "Newton method : \n";
     double x;
     if (EvalPolStr(t,a,0)*EvalPolStr(t,a,2)>0)
         x = a;

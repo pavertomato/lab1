@@ -4,7 +4,7 @@
 #include <stdexcept>
 using namespace std;
 //t -- expression
-double findIteration(char *t, double a, double b, double eps) {
+double findIteration(char *t, double a, double b, double eps,double& result) {
     double lam;
     double x;
     if (fabs(EvalPolStr(t,a,1))<1)
@@ -13,10 +13,9 @@ double findIteration(char *t, double a, double b, double eps) {
         x=b;
     lam = EvalPolStr(t,x,0);
     while (1) {
-        double result = EvalPolStr(t,x,0);
+        result = EvalPolStr(t,x,0);
         double newx = x-result/lam;
         if (fabs(newx-x)<eps || fabs(result)<eps) {
-            cout << "x : " << x << "; f(x) : " << result << "; eps: " << eps << endl;
             return newx;
         }
         x = newx;
