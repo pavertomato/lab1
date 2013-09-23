@@ -5,6 +5,7 @@
 #include "newton.h"
 #include "diho.h"
 #include "combined.h"
+#include "chord.h"
 using namespace std;
 int main(int argc, char **argv) {
 
@@ -23,6 +24,8 @@ int main(int argc, char **argv) {
         //cout<<t<<endl;
         if (n==1)
             findDiho(t,a,b,eps);
+        if (n==2)
+            findChord(t,a,b,eps);
         if (n==3)
             findNewton(t,a,b,eps);
         if (n==4)
