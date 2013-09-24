@@ -8,17 +8,15 @@ double findIteration(char *t, double a, double b, double eps,double& result) {
     cout << "Iteration method : \n";
     double lam;
     double x;
-    if (fabs(EvalPolStr(t,a,1))<1)
-        x=a;
-    else if (fabs(EvalPolStr(t,b,1))<1)
-        x=b;
-    else
-        x = (a+b)/2;
+    double max=-1;
+    for(double i=a;i<b;i+=1e-100)
+        if(fabs(EvalPolStr(t,i,1))>max)
+                x=i;
     lam = fabs(EvalPolStr(t,x,0));
     while (1) {
         result = EvalPolStr(t,x,0);
         double newx = x-result/lam;
-        if (fabs(newx-x)<eps || fabs(result)<eps) {
+        if (fabs(newx-x)<eps && fabs(result)<eps) {
             return newx;
         }
         x = newx;

@@ -17,8 +17,8 @@ double findDiho(char *t, double a, double b, double eps, double& result) {
             else
                 a=c;
         }
-        while(fabs(EvalPolStr(t,c))>eps||(b-a)/2>eps);
-        result = EvalPolStr(t,c);
+        while(fabs(EvalPolStr(t,(a+b)/2))>eps||(b-a)/2>eps);
+        result = EvalPolStr(t,(a+b)/2);
         return c;
 }
 

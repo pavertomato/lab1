@@ -19,7 +19,7 @@ double findNewton(char *t, double a, double b, double eps, double& result) {
         result = EvalPolStr(t,x,0);
         //cerr << x << ' ' << result << ' ' << derivative << endl;
         double newx = x-result/derivative;
-        if (fabs(newx-x)<eps || fabs(result)<eps) {
+        if (fabs(newx-x)<eps && fabs(result)<eps) {
             return newx;
         }
         x = newx;

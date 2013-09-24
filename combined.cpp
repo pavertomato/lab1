@@ -24,7 +24,7 @@ double findCombined(char *t, double a, double b, double eps, double& result) {
             bcur -= EvalPolStr(t,bcur,0)/derivative;
         }
         result = EvalPolStr(t,(acur+bcur)/2,0);
-        if (fabs(bcur-acur)/2<eps || fabs(result)<eps) {
+        if (fabs(bcur-acur)/2<eps && fabs(result)<eps) {
             return (acur+bcur)/2;
         }
     }
