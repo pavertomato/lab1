@@ -7,14 +7,12 @@ using namespace std;
 double findIteration(char *t, double a, double b, double eps, double& value, double& result) {
     cout << "Iteration method : \n";
     double lam;
-    double x;
-    double max=-1;
+    double x=-1;
     for(double i=a;i<b;i+=0.0001) {
-        if(fabs(EvalPolStr(t,i,1))>max)
-            max=i;
+        if(fabs(EvalPolStr(t,i,1))>x)
+            x=i;
     }
-    x=max;
-    lam = EvalPolStr(t,x,1);    
+    lam = EvalPolStr(t,x,1);
     while (1) {
         result = EvalPolStr(t,x,0);
         double newx = x-result/lam;
