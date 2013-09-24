@@ -11,14 +11,16 @@ double findIteration(char *t, double a, double b, double eps, double& value, dou
     double max=-1;
     for(double i=a;i<b;i+=0.0001) {
         if(fabs(EvalPolStr(t,i,1))>max)
-            x=i;
+            max=i;
     }
-    lam = fabs(EvalPolStr(t,x,0));
+    x=max;
+    lam = EvalPolStr(t,x,1);    
     while (1) {
         result = EvalPolStr(t,x,0);
         double newx = x-result/lam;
         result = fabs(result);
         value = fabs(newx-x);
+        cerr << x << ' ' << result << ' ' << value << endl;
         if (result<eps && value<eps) {
             return newx;
         }
