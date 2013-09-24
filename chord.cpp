@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdexcept>
 using namespace std;
-double findChord(char *t, double a, double b, double eps, double& result) {
+double findChord(char *t, double a, double b, double eps, double& value, double& result) {
     cout << "Chord method : \n";
         double c;
         double oldC;
@@ -25,9 +25,10 @@ double findChord(char *t, double a, double b, double eps, double& result) {
                 oldC=a;
                 a=c;
             }
+            result = fabs(EvalPolStr(t,c));
+            value = fabs(c-oldC);
         }
-        while(fabs(EvalPolStr(t,c))>eps||fabs(c-oldC)>eps);
-        result = EvalPolStr(t,c);
+        while(result>eps||value>eps);
         return c;
 
 }

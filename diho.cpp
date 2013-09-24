@@ -5,7 +5,7 @@
 #include "diho.h"
 #include <string.h>
 using namespace std;
-double findDiho(char *t, double a, double b, double eps, double& result) {
+double findDiho(char *t, double a, double b, double eps, double& value, double& result) {
     cout << "Dihotomy method : \n";
         double c;
         do
@@ -16,9 +16,10 @@ double findDiho(char *t, double a, double b, double eps, double& result) {
                 b=c;
             else
                 a=c;
+            result = fabs(EvalPolStr(t,(a+b)/2));
+            value = fabs((b-a)/2);
         }
-        while(fabs(EvalPolStr(t,(a+b)/2))>eps||(b-a)/2>eps);
-        result = EvalPolStr(t,(a+b)/2);
+        while(result>eps||value>eps);
         return c;
 }
 

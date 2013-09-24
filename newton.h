@@ -1,4 +1,4 @@
 #ifndef FIND_NEWTON
 #define FIND_NEWTON
-double findNewton(char *sexpr, double a, double b, double eps, double&);
+double findNewton(char *sexpr, double a, double b, double eps, double&,double&);
 #endif

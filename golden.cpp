@@ -4,7 +4,7 @@
 #include <stdexcept>
 using namespace std;
 //t -- expression
-double findGolden(char *t, double a, double b, double eps, double& result) {
+double findGolden(char *t, double a, double b, double eps, double& value, double& result) {
     cout << "Golden Ratio method : \n";
     double acur = a, bcur = b;
     const double ratio = (sqrt(5)+1)/2;
@@ -15,8 +15,9 @@ double findGolden(char *t, double a, double b, double eps, double& result) {
             bcur = dcur;
         else
             acur = ccur;
-        result = EvalPolStr(t,(acur+bcur)/2,0);
-        if (fabs(bcur-acur)/2<eps && fabs(result)<eps) {
+        result = fabs(EvalPolStr(t,(acur+bcur)/2,0));
+        value = fabs(bcur-acur)/2;
+        if (result<eps && value<eps) {
             return (acur+bcur)/2;
         }
     }

@@ -4,7 +4,7 @@
 #include <stdexcept>
 using namespace std;
 //t -- expression
-double findCombined(char *t, double a, double b, double eps, double& result) {
+double findCombined(char *t, double a, double b, double eps, double& value, double& result) {
     cout << "Combined method : \n";
     double acur = a, bcur = b;
     while (1) {
@@ -23,8 +23,9 @@ double findCombined(char *t, double a, double b, double eps, double& result) {
             if (derivative==0) throw invalid_argument("0 devision by derivative");
             bcur -= EvalPolStr(t,bcur,0)/derivative;
         }
-        result = EvalPolStr(t,(acur+bcur)/2,0);
-        if (fabs(bcur-acur)/2<eps && fabs(result)<eps) {
+        result = fabs(EvalPolStr(t,(acur+bcur)/2,0));
+        value = fabs(bcur-acur)/2;
+        if (value<eps && result<eps) {
             return (acur+bcur)/2;
         }
     }

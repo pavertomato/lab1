@@ -21,26 +21,26 @@ int main(int argc, char **argv) {
     cin >> eps;
     char* t = new char[1024+1];
     strcpy(t,spol.c_str());
-    double x,y;
+    double x,xe,y;
     try {
         t=CreatePolStr(t,0);
         if (n==1)
-            x = findDiho(t,a,b,eps,y);
+            x = findDiho(t,a,b,eps,xe,y);
         if (n==2)
-            x = findChord(t,a,b,eps,y);
+            x = findChord(t,a,b,eps,xe,y);
         if (n==3)
-            x = findNewton(t,a,b,eps,y);
+            x = findNewton(t,a,b,eps,xe,y);
         if (n==4)
-            x = findCombined(t,a,b,eps,y);
+            x = findCombined(t,a,b,eps,xe,y);
         if (n==5)
-            x = findIteration(t,a,b,eps,y);
+            x = findIteration(t,a,b,eps,xe,y);
         if (n==6)
-            x = findGolden(t,a,b,eps,y);
+            x = findGolden(t,a,b,eps,xe,y);
     }
     catch (exception e) {
         cout << e.what() << endl;
     }
     cout.precision(-log10(eps));
-    cout << "x : " << x << "; f(x) : " << y << "; eps: " << eps << endl;
+    cout << "x : " << x << "; delta f(x) : " << y << "; eps: " << xe << endl;
     return 0;
 }
